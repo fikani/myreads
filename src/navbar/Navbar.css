@@ -1,0 +1,25 @@
+.myreads-navbar {
+  padding: 10px 0;
+}
+
+.myreads-navbar-button {
+  font-size: 1.5em;
+  background-color: rgba(232,232,232, 1);
+  border-radius: 1px;
+}
+
+.myreads-navbar-search-padding {
+  padding: 60px 0 0 0;
+}
+
+.myreads-navbar-items {
+
+}
+
+.myreads-navbar-item {
+  padding: 20px 0;
+}
+
+.myreads-navbar-splitter {
+  border: solid 1px rgba(232,232,232, 1);
+}
