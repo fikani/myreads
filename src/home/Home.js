@@ -10,9 +10,9 @@ class Home extends Component {
       <div className="row">
         <Navbar/>
         <LastViewedBook/>
-        <BookList title="currently reading" listType="reading" />
-        <BookList title="want to read" listType="want"/>
-        <BookList title="read" listType="read"/>
+        <BookList title="Currently Reading" listType="reading" />
+        <BookList title="Want To Read" listType="want"/>
+        <BookList title="Read" listType="read"/>
       </div>
     );
   }
