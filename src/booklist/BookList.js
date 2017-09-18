@@ -13,23 +13,45 @@ class BookList extends Component {
   };
 
   render() {
-    const { title, listType } = this.props;
+    const { tags, books, activeTag, onSelectShelf, onClickBook} = this.props;
 
     return (
       <div className="col-12 col-sm-12">
         <div className="row myreads-bl">
-          <div className="col-12 col-sm-12 myreads-bl-header">
-            <span className="myreads-bl-title">{title}:</span>
-          </div>
-          <div className="col-4 col-sm-4 myreads-bl-item text-center">
-            <img className="myreads-bl-item-img img-thumbnail" src="http://books.google.com/books/content?id=5kxm7HB96xsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" />
-          </div>
-          <div className="col-4 col-sm-4 myreads-bl-item text-center">
-            <img className="myreads-bl-item-img img-thumbnail" src="http://books.google.com/books/content?id=lT9BdnXnNHgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" />
-          </div>
-          <div className="col-4 col-sm-4 myreads-bl-item text-center">
-            <img className="myreads-bl-item-img img-thumbnail" src="http://books.google.com/books/content?id=HOdKAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api" />
-          </div>
+          {tags &&
+            <div className="col-12 col-sm-12 myreads-bl-header text-center">
+              <div className="btn-group" data-toggle="buttons">
+                {tags.map( (tag, index) => (
+                  <div key={tag} className={"myreads-bl-shelf btn btn-outline-danger" +
+                    (tag === activeTag? " active": "")}
+                    onClick={()=>onSelectShelf(index)}>
+                    <input id={"shelf" + index} type="radio" name="options" autoComplete="off"/>{tag}
+                  </div>
+                ))}
+              </div>
+            </div>
+          }
+          {books && books.map( (book) => (
+            <div
+              key={book.id}
+              onClick={()=>onClickBook(book)}
+              className="col-3 col-sm-3 myreads-bl-item text-center">
+              {(book.volumeInfo.imageLinks?
+                <img
+                  alt={book.volumeInfo.title}
+                  className="myreads-bl-item-img img-thumbnail"
+                  src={book.volumeInfo.imageLinks.thumbnail} />
+                :
+                <div className="myreads-bl-item-img img-thumbnail">{book.volumeInfo.title}</div>
+              )}
+
+            </div>
+          ))}
+          {!books &&
+            <div className="col-12 col-sm-12 text-center">
+              <span>no result</span>
+            </div>
+          }
         </div>
       </div>
     );

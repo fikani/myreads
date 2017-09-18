@@ -28,18 +28,11 @@ export class LastViewedBook extends Component {
                 <small>Jeff Lindsay</small>
               </header>
               <section className="myreads-lvb-synopsis">
-                <button type="button" className="btn btn-danger btn-block">synopsis</button>
-              </section>
-              <section className="myreads-lvb-synopsis">
-                <button type="button" className="btn btn-outline-danger btn-block">preview</button>
+                jashda  Ksjdhak kajhd asjd hakjshdaksh dkjah sdakhjs djk jashda 
               </section>
             </article>
             <div className="myreads-lvb-status-bar">
-              <div className="myreads-lvb-status-item">
-                <img className="myreads-lvb-status-img"
-                  src="https://image.flaticon.com/icons/svg/167/167755.svg" />
-              </div>
-              <i className="myreads-lvb-status-item myreads-lvb-like fa fa-heart-o" aria-hidden="true"></i>
+              <button type="button" className="btn btn-outline-danger btn-block">more</button>
             </div>
           </div>
         </div>

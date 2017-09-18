@@ -4,8 +4,9 @@ import './Navbar.css';
 import logo from '../logo.svg';
 
 class Navbar extends Component {
-
   render() {
+    const { onSearch, query } = this.props;
+
     return (
       <div className="col-12 col-sm-12 col-md-4 col-lg-2">
         <div className="row myreads-navbar">
@@ -18,7 +19,7 @@ class Navbar extends Component {
             <div className="d-none d-md-block myreads-navbar-search-padding"></div>
             <input type="search"
               className="form-control"
-              placeholder="Search"/>
+              placeholder="Search" onChange={(e) => onSearch(e.target.value)}/>
           </div>
           <div className="col-2 col-sm-2 d-md-none text-center">
             <i className="myreads-navbar-button fa fa-bars" aria-hidden="true"></i>

@@ -3,8 +3,7 @@
 }
 
 .myreads-bl-header {
-  margin: 10px;
-  font-size: 0.8em;
+  padding: 0 0 20px 0;
   font-weight: bold;
 }
 
@@ -23,8 +22,13 @@
   padding: 0 5px;
 }
 
-.myreads-bl-item {
+.myreads-bl-shelf {
+  font-size: 0.8em;
+  cursor: pointer;
+}
 
+.myreads-bl-item {
+  padding: 0 0 15px 0;
 }
 
 .myreads-bl-item-img {

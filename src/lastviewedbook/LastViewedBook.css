@@ -1,5 +1,5 @@
 .myreads-lvb {
-  background-color: rgba(246,246,246, 1); 
+  background-color: rgba(246,246,246, 1);
 }
 
 .myreads-lvb-info {
@@ -28,8 +28,6 @@
 
 .myreads-lvb-status-bar {
   font-size: 1.5em;
-  background-color: rgba(232,232,232, 1);
-  border-radius: 5px;
 }
 
 .myreads-lvb-status-item {
