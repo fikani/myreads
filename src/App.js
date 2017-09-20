@@ -4,27 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './ubuntu.css';
 import './App.css';
-import Home from './home/Home';
-import Search from './search/Search';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import BookDetails from './pages/BookDetails';
 
 class App extends Component {
-
-  onSearch = (text) => {
-    if (window.location.pathname === '/search'){
-
-    } else {
-      window.location = '/search?q=' + text
-    }
-  };
-
   render() {
     return (
       <div className="container-fluid">
         <Route exact path="/" render={ () => (
-            <Home onSearch={this.onSearch}/>
+            <Home/>
           )}/>
           <Route path="/search" render={ () => (
             <Search/>
+          )}/>
+        <Route path="/book/:id" render={ () => (
+            <BookDetails/>
           )}/>
       </div>
     );

@@ -1,0 +1,9 @@
+.myreads-shelf {
+  padding: 20px;
+  font-weight: bold;
+}
+
+.myreads-shelf-item {
+  font-size: 0.8em;
+  cursor: pointer;
+}

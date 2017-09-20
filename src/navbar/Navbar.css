@@ -4,17 +4,38 @@
 
 .myreads-navbar-button {
   font-size: 1.5em;
-  background-color: rgba(232,232,232, 1);
   border-radius: 1px;
+  cursor: pointer;
 }
 
 .myreads-navbar-search-padding {
   padding: 60px 0 0 0;
 }
 
-.myreads-navbar-items {
+@media only screen and (max-width: 768px) {
+  .myreads-navbar-mobile .myreads-navbar-items {
+    display: block!important;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 999;
+    padding: 20vh 0 0 0;
+  }
 
+  .myreads-navbar-mobile .myreads-navbar-button {
+    z-index: 1000;
+    position: absolute;
+  }
+
+  .myreads-navbar-mobile .myreads-navbar-button::before {
+    content: "\f00d";
+  }
 }
+
 
 .myreads-navbar-item {
   padding: 20px 0;
@@ -22,4 +43,14 @@
 
 .myreads-navbar-splitter {
   border: solid 1px rgba(232,232,232, 1);
+}
+
+.myreads-navbar-container:before {
+  -webkit-box-shadow: 9px 0px 9px -6px rgba(0,0,0,0.25);
+  box-shadow: 9px 0px 9px -6px rgba(0,0,0,0.25);
+  min-height: 100vh;
+  width: 20px;
+  right: 0px;
+  position: absolute;
+  content: " ";
 }

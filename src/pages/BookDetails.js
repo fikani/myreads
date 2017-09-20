@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './LastViewedBook.css';
+import '../book/BookDetails.css';
 
-export class LastViewedBook extends Component {
+export class BookDetails extends Component {
 
   render() {
     return (
@@ -28,7 +28,7 @@ export class LastViewedBook extends Component {
                 <small>Jeff Lindsay</small>
               </header>
               <section className="myreads-lvb-synopsis">
-                jashda  Ksjdhak kajhd asjd hakjshdaksh dkjah sdakhjs djk jashda 
+                jashda  Ksjdhak kajhd asjd hakjshdaksh dkjah sdakhjs djk jashda
               </section>
             </article>
             <div className="myreads-lvb-status-bar">
@@ -42,4 +42,4 @@ export class LastViewedBook extends Component {
 }
 
 
-export default LastViewedBook;
+export default BookDetails;
