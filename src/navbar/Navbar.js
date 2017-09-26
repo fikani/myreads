@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Navbar.css';
 import logo from '../logo.svg';
 
 class Navbar extends Component {
-
-  state = {
-    lastQuery: '',
-    showingMobileMenu: false
+  constructor(props) {
+    super(props);
+    this.state = { showingMobileMenu: false};
+    this.lastQuery = '';
+    this.lastTimeout = null;
   }
 
-  containerEl = null;
+  static propTypes = {
+    onSearch: PropTypes.func,
+    query: PropTypes.string.isRequired,
+    onChange: PropTypes.func
+  };
+
   toggleMenu = () => {
     this.setState({
       showingMobileMenu: !this.state.showingMobileMenu
     })
   };
 
-  lastTimeout = null;
   onSearch = (event, fn) => {
     if (this.lastTimeout) clearTimeout(this.lastTimeout);
     const query = event.target.value.trim();
     this.lastTimeout = setTimeout(() => {
       if (!query) return;
-      if (query === this.state.lastQuery) return;
-      this.setState({lastQuery: query});
-      fn(query);
+      if (query === this.lastQuery) return;
+      this.lastQuery = query;
+      if (fn) fn(query);
     }, 600);
   };
 
@@ -33,7 +39,7 @@ class Navbar extends Component {
     const { onSearch, query, onChange } = this.props;
     const { showingMobileMenu } = this.state;
     return (
-      <div className={ showingMobileMenu ? 'myreads-navbar-mobile' : '' } >
+      <div className={ 'myreads-navbar-container' + (showingMobileMenu ? ' myreads-navbar-mobile' : '') } >
         <div className="row myreads-navbar">
           <div className="col-4 col-sm-4 col-md-12">
             <img src={logo} alt="Logo" style={{

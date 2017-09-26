@@ -3,14 +3,15 @@ import { withRouter } from 'react-router-dom'
 import Navbar from '../navbar/Navbar';
 import BookList from '../book/BookList';
 import Loader from '../loader/Loader';
-import { moveToReading } from '../shelf/ShelfUtils';
-import { search } from '../BooksAPI';
+import { search, update } from '../BooksAPI';
+import { NavigateTo } from '../Utils';
 
 class Search extends Component {
 
   state = {
     books: [],
     query: '',
+    selectedBook: null,
     isSearching: false
   };
 
@@ -43,13 +44,14 @@ class Search extends Component {
     });
   };
 
-  onClickBook = (book) => {
-    moveToReading(book);
-    console.log(book);
+  onChangeBookShelf = async (book, shelf) => {
+    await update(book, shelf);
+    this.setState({selectedBook: null});
   };
 
   render() {
-    const { isSearching, query } = this.state;
+    const { isSearching, query, selectedBook } = this.state;
+    const history = this.props.history;
     return (
       <div className="row">
         <div className="col-12 col-sm-12 col-md-3 col-lg-2">
@@ -62,8 +64,13 @@ class Search extends Component {
           <Loader hidden={!isSearching} />
           <BookList
             books={this.state.books}
-            onClickBook={this.onClickBook}
-            isLoadingBooks={isSearching}/>
+            selectedBook={selectedBook}
+            onClickBook={(book) => NavigateTo(history, 'book', { book })}
+            isLoadingBooks={isSearching}
+            onChangeBookShelf={this.onChangeBookShelf}
+            onClickBookOptions={(book) => this.setState({selectedBook: book})}
+            onClickCloseBookOptions={(book) => this.setState({selectedBook: null})}
+          />
         </div>
       </div>
     );

@@ -3,11 +3,13 @@ import './ShelfSelector.css';
 
 class ShelfSelector extends Component {
   render() {
-    const { shelves, activeShelf, onSelectShelf, hidden} = this.props;
+    const { shelves, activeShelf, onSelectShelf, hidden, vertical} = this.props;
     if (hidden) return (null);
     return (
         <div className="myreads-shelf text-center">
-          <div className="btn-group" data-toggle="buttons">
+          <div
+            className={"btn-group" + (vertical ? '-vertical' :'')} 
+            data-toggle="buttons">
             {shelves.map( (shelf, index) => (
               <div key={shelf.key} className={"myreads-shelf-item btn btn-outline-danger" +
                 (shelf.key === activeShelf? " active": "")}
