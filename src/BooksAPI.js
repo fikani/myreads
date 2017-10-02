@@ -7,8 +7,12 @@ PouchDB.plugin(PouchFind);
 const db = new PouchDB('myreads_');
 
 export const get = (bookId) =>
-  fetch(`${api}/volumes/${bookId}`)
-    .then(res => res.json());
+  db.find({selector: {id: {$eq: bookId }}})
+  .then((res) => {
+    if (res.docs.length) return res.docs[0];
+    return fetch(`${api}/volumes/${bookId}`)
+      .then(res => res.json())
+  });
 
 export const getAll = () =>
   db.allDocs({

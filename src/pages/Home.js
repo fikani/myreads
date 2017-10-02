@@ -57,7 +57,7 @@ class Home extends Component {
   };
 
   render() {
-    const { showingShelf, query, selectedBook, isLoadingBooks } = this.state;
+    const { showingShelf, query, selectedBook } = this.state;
     const history = this.props.history;
     return (
       <div className="row">
