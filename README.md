@@ -1,7 +1,8 @@
 # MyReads Project
 
 Thiss is my MyReads project from Udacity's React course. There are some modifications regarding the original BooksAPI provided by Udacity. Feel free to criticize my decisions but the objective was to give more flexibility to the search functionality.
-#####**Important:** ***Your shelves start empty, you have to use the search functionality to find new books to add to your shelves.**
+
+**Important:** ***Your shelves start empty, you have to use the search functionality to find new books to add to your shelves.**
 
 ## TL;DR
 
