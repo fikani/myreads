@@ -36,8 +36,8 @@ export const update = (book, shelf) => {
   );
 };
 
-export const search = (query, maxResults) => {
-  return fetch(`${api}/volumes?maxResults=12&q=${query}`)
+export const search = (query, maxResults = 20) => {
+  return fetch(`${api}/volumes?maxResults=20&q=${query}`)
     .then(res => res.json())
     .then(data => data.items)
     .then(items => {

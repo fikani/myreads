@@ -33,7 +33,7 @@ class BookList extends Component {
               <BookListItemInfo
                 key={book.id}
                 book={book}
-                showRemoveButton={book.shelf !== null}
+                showRemoveButton={book.shelf != undefined}
                 onChangeShelf={onChangeBookShelf}
                 onClickCloseBookOptions={onClickCloseBookOptions}
               />

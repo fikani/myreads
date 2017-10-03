@@ -46,14 +46,15 @@ export class BookDetails extends Component {
                   <div className="col-6 col-sm-6">
                     <img className="pull-right" style={{width: '60%'}}
                       alt={book.volumeInfo.title}
-                      src={book.volumeInfo.imageLinks.thumbnail}
+                      src={book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail}
                     />
                   </div>
                   <div className="col-6 col-sm-6">
                     <h4>{book.volumeInfo.title}</h4>
-                    <p><strong>Author(s):</strong> {book.volumeInfo.authors && book.volumeInfo.authors.map(a => a)}</p>
-                    <p><strong>Publisher:</strong> {book.volumeInfo.publisher}, {book.volumeInfo.publishedDate}</p>
-                    <p><strong>Pages:</strong> {book.volumeInfo.pageCount}</p>
+                    <p><strong>Author(s):</strong> {book.volumeInfo.authors
+                      && book.volumeInfo.authors.map((v, i, arr) => v + (i+1  == arr.length? '.': ', '))}</p>
+                    <p><strong>Publisher:</strong> {book.volumeInfo.publisher} {book.volumeInfo.publishedDate}.</p>
+                    {book.volumeInfo.pageCount && <p><strong>Pages:</strong> {book.volumeInfo.pageCount}</p>}
                     <p><strong>Preview:</strong> <a href={book.accessInfo.webReaderLink}>link</a></p>
 
                   </div>
