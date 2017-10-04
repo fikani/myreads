@@ -1,0 +1,16 @@
+
+ src/book/BookList.js:42 
+SUGESTÃO
+Não há necessidade de enviar para o componente a key={book.id} uma vez que o id já se encontra no objeto book={book} que você está passando.
+
+COMENTÁRIO DO ALUNO
+Mas o key esta sendo colocado por conta do "loop" que o método map requere. Há outra forma de fazer isso?
+
+ src/navbar/Navbar.js:51
+SUGESTÃO
+Seria interessante trabalhar com os debounces, nesse caso, você evitaria que o usuário digite rápido e os livros apresentados sejam outros. Exemplo se o usuário rapidamente digite: asdretorna livros de android, porque a pesquisa trouxe resultados da query a mas não completou a query com asd que na verdade deveria retornar vazio. Dê uma olhada nesse Debounce
+
+COMENTÁRIO DO ALUNO
+As queries no meu MyReads acabam sempre retornando algo pois estou usando a API do Google Books e não da Udacity, ele acaba processando o resultado da busca por mim.
+Sobre o Debounce, esse comportamento escrito não está acontecendo. Se olhar o método onSearch, ele já tem um "Debounce" de 600ms feito com timeout.
+

@@ -66,6 +66,11 @@ class Navbar extends Component {
               Home
             </Link>
           </div>
+          <div className="col-12 col-sm-12 col-md-12 text-center myreads-navbar-item">
+            <Link to="/search">
+              Search
+            </Link>
+          </div>
         </div>
       </div>
     );
